@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsideCEF.WinForms", "InsideCEF.WinForms\InsideCEF.WinForms.csproj", "{F9D7A319-1669-42B1-8591-49071832EE8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsideCEF.WPF", "InsideCEF.WPF\InsideCEF.WPF.csproj", "{9024807D-F79C-43ED-A0D4-3E7F978DA096}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,14 +21,6 @@ Global
 		{F9D7A319-1669-42B1-8591-49071832EE8E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F9D7A319-1669-42B1-8591-49071832EE8E}.Release|x64.ActiveCfg = Release|x64
 		{F9D7A319-1669-42B1-8591-49071832EE8E}.Release|x64.Build.0 = Release|x64
-		{9024807D-F79C-43ED-A0D4-3E7F978DA096}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9024807D-F79C-43ED-A0D4-3E7F978DA096}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9024807D-F79C-43ED-A0D4-3E7F978DA096}.Debug|x64.ActiveCfg = Debug|x64
-		{9024807D-F79C-43ED-A0D4-3E7F978DA096}.Debug|x64.Build.0 = Debug|x64
-		{9024807D-F79C-43ED-A0D4-3E7F978DA096}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9024807D-F79C-43ED-A0D4-3E7F978DA096}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9024807D-F79C-43ED-A0D4-3E7F978DA096}.Release|x64.ActiveCfg = Release|x64
-		{9024807D-F79C-43ED-A0D4-3E7F978DA096}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

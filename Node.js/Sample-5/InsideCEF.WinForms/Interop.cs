@@ -1,7 +1,11 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 using CefSharp;
+#if WPF
+using CefSharp.Wpf;
+#else
 using CefSharp.WinForms;
+#endif
 
 namespace InsideCEF
 {
@@ -29,7 +33,7 @@ namespace InsideCEF
       Browser.ShowDevTools();
     }
 
-    #region To UI (Generic)
+#region To UI (Generic)
 
     // from https://github.com/speckleworks/SpeckleRhino/blob/dev/SpeckleRhinoPlugin/src/Interop.cs#L340
 
@@ -47,9 +51,9 @@ namespace InsideCEF
       }
     }
 
-    #endregion
+#endregion
 
-    #region To UI
+#region To UI
 
     public void PushPreview(string data)
     {
@@ -57,9 +61,9 @@ namespace InsideCEF
       Browser?.GetMainFrame().EvaluateScriptAsync("onGhObjectAdded("+data+");");
     }
 
-    #endregion
+#endregion
 
-    #region To Rhino
+#region To Rhino
 
     public async Task<object> StartRhino(dynamic input)
     {
@@ -71,7 +75,7 @@ namespace InsideCEF
       return await rhinoInsideTaskManager.StartGrasshopperTask(input);
     }
 
-    #endregion
+#endregion
 
   }
 }

@@ -98,8 +98,8 @@ namespace InsideCEF
       {
         // Start Rhino
         // TODO: use input argument variables here
-        var PATH = Environment.GetEnvironmentVariable("PATH");
-        Environment.SetEnvironmentVariable("PATH", PATH + ";" + rhinoSystemDir);
+        //var PATH = Environment.GetEnvironmentVariable("PATH");
+        //Environment.SetEnvironmentVariable("PATH", PATH + ";" + rhinoSystemDir);
         rhinoCore = new RhinoCore(new string[] { "/NOSPLASH" }, WindowStyle.Hidden);
 
         // Subscribe to events
