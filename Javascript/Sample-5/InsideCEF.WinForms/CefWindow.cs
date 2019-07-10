@@ -90,9 +90,6 @@ namespace InsideCEF.WinForms
         Browser.ShowDevTools();
 
         Interop.StartGrasshopper(null);
-        //Debug.WriteLine("V4D Content loaded to UI", "V4D");
-
-
       }
     }
 
