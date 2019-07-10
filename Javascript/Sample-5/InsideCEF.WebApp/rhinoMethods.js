@@ -25,7 +25,6 @@ function talkToMe(data)
   console.log(data);
 }
 
-
 window.onclose = function(){
   // Do something
   /*

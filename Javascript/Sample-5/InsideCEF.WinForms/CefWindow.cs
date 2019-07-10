@@ -52,25 +52,13 @@ namespace InsideCEF.WinForms
 
     private void InitializeBrowser()
     {
-#if DEBUG
-      //use localhost
-      // Browser = new ChromiumWebBrowser(@"http://localhost:7070/");
-      // Browser = new ChromiumWebBrowser(@"http://rhino3d.com");
-      Browser = new ChromiumWebBrowser(@"C:\dev\mcneel\Rhino.Inside\Node.js\Sample-5\InsideCEF.WebApp\index.html");
-#else
-      //use dist files
-      var path = Directory.GetParent(Assembly.GetExecutingAssembly().Location);
-      Debug.WriteLine(path, "InsideCEF");
 
-      var indexPath = string.Format(@"{0}\app\index.html", path);
-
-      if (!File.Exists(indexPath))
-        Debug.WriteLine("Error. The html file doesn't exists : {0}", "InsideCEF");
-
-      indexPath = indexPath.Replace("\\", "/");
+      var exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+      var projectRootDir = Directory.GetParent(exePath).Parent.Parent.Parent.FullName;
+      var indexPath = Path.Combine(projectRootDir, "InsideCEF.WebApp", "index.html");
 
       Browser = new ChromiumWebBrowser(indexPath);
-#endif
+
       // Allow the use of local resources in the browser
       Browser.BrowserSettings = new BrowserSettings
       {
