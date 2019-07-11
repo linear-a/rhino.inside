@@ -1,13 +1,15 @@
 # Rhino.Inside.Javascript
-### Running Rhino and Grasshopper inside various Javascript Engines (Node.js, Electron, Chromium Embedded Framework)
+Rhino Inside® technology allows Rhino and Grasshopper to be embedded within other products.
+### Running Rhino and Grasshopper inside various Javascript Runtimes / Frameworks (Node.js, Electron, Chromium Embedded Framework)
+
 
 ## Samples
 
-1. [Sample 1](Sample-1): Rhino.Inside.Node 1 -
-2. [Sample 2](Sample-2): Rhino.Inside.Node 2 -
-3. [Sample 3](Sample-3): Rhino.Inside.Node 3 - 
-4. [Sample 4](Sample-4): Rhino.Inside.Electron - This example launches an Electron window, calls methods from Javascript to .NET to launch Rhino, and launch Grasshopper. When meshes are added to the Grasshopper definition, these meshes will be rendered in the Chromium browser by three.js.
-5. [Sample 5](Sample-5): Rhino.Inside.CEF (Chromium Embedded Framework via CefSharp) - This example embeds a Chromium Browser inside a WinForm window, launches Rhino, and launches Grasshopper. When meshes are added to the Grasshopper definition, these meshes will be rendered in the Chromium browser by three.js.
+1. [Sample 1](Sample-1): Rhino.Inside.Node 1 - This sample runs Rhino inside Node.js. The javascript code calls into a .NET dll which launches Rhino, creates some geometry, and returns information related to that geometry. This information is then passed back to javascript and is printed to the console.
+2. [Sample 2](Sample-2): Rhino.Inside.Node 2 - This sample is similar to Sample 1, but shows how to define other methods and call them via edge.js.
+3. [Sample 3](Sample-3): Rhino.Inside.Electron - This sample extends Sample 1 and 2 with Electron. The Electron app calls methods from Javascript to .NET to launch Rhino, create some geometry. This geometry is then passed back to Electron. The geometry is deserialized with rhino3dm.js and rendered with three.js.
+4. [Sample 4](Sample-4): Rhino.Inside.Electron 2 - This sample extends Sample 3. The Electron app calls methods from Javascript to .NET to launch Rhino and then launch Grasshopper. When a component is added to the definition which has a result that includes meshes, the meshes are passed back to Electron. The geometry is deserialized with rhino3dm.js and rendered with three.js.
+5. [Sample 5](Sample-5): Rhino.Inside.CEF (Chromium Embedded Framework via CefSharp) - This sample is similar to Sample 4, except this time it uses Chromium Embedded Framework instead of Electron. The sample embeds a Chromium Browser inside a WinForm window, launches Rhino, and launches Grasshopper. When meshes are added to the Grasshopper definition, these meshes will be rendered in the Chromium browser by three.js.
 
 ## Javascript Runtimes / Frameworks
 

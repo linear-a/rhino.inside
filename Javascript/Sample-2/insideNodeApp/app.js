@@ -1,7 +1,7 @@
 // require edge.js: https://github.com/agracio/edge-js
-var path = require('path');
 var edge = require('edge-js');
 
+// construct the path to the .NET dll
 var namespace = 'InsideNode';
 var baseAppPath = '../' + namespace + '/bin/Debug/';
 var baseDll = baseAppPath + namespace + '.dll';

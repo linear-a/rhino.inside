@@ -9,7 +9,7 @@ using Newtonsoft.Json.Serialization;
 using Rhino.FileIO;
 using Rhino.Runtime.InProcess;
 
-namespace InsideNode.Core
+namespace InsideElectron
 {
   public class RhinoMethods
   {
@@ -37,20 +37,11 @@ namespace InsideNode.Core
     {
       try
       {
-        // Thread.CurrentThread.SetApartmentState(ApartmentState.STA);
-
-        // WindowStyle.Hidden: Node returns Error HRESULT E_FAIL has been returned from a call to a COM component.
-        // WindowStyle.Normal: Rhino opens, then Node returns Error HRESULT E_FAIL has been returned from a call to a COM component.
-        // WindowStyle.NoWindow: OK
-
         rhinoCore = new RhinoCore(new string[] { "/NOSPLASH" }, WindowStyle.NoWindow);
-
         return "Rhino has started.";
-
       }
       catch (Exception ex)
       {
-        //Debug.WriteLine(ex.Message);
         return ex.Message;
       }
     }

@@ -36,20 +36,11 @@ namespace InsideNode
     {
       try
       {
-        // Thread.CurrentThread.SetApartmentState(ApartmentState.STA);
-
-        // WindowStyle.Hidden: Node returns Error HRESULT E_FAIL has been returned from a call to a COM component.
-        // WindowStyle.Normal: Rhino opens, then Node returns Error HRESULT E_FAIL has been returned from a call to a COM component.
-        // WindowStyle.NoWindow: OK
-
         rhinoCore = new RhinoCore(new string[] { "/NOSPLASH" }, WindowStyle.NoWindow);
-
         return "Rhino has started.";
-
       }
       catch (Exception ex)
       {
-        //Debug.WriteLine(ex.Message);
         return ex.Message;
       }
     }
@@ -71,8 +62,6 @@ namespace InsideNode
       }
       catch (Exception ex)
       {
-        // Debug.Fail(e.Source, e.Message);
-        //return Result.Failed;
         return ex.Message;
       }
     }

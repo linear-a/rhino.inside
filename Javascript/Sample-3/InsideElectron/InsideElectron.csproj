@@ -6,6 +6,10 @@
 	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
   
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
@@ -17,7 +21,7 @@
   
   <ItemGroup>
     <Reference Include="EdgeJs">
-      <HintPath>..\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1\EdgeJs.dll</HintPath>
+      <HintPath>..\InsideElectronApp\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1\EdgeJs.dll</HintPath>
     </Reference>
     <Reference Include="RhinoCommon">
       <HintPath>..\..\..\..\..\..\..\..\Program Files\Rhino WIP\System\RhinoCommon.dll</HintPath>

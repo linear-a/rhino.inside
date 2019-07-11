@@ -1,9 +1,8 @@
 const path = require('path');
-var version = 'core';
-var namespace = 'InsideNode.' + version.charAt(0).toUpperCase() + version.substr(1);
-if(version === 'core') version = 'coreapp';
+var namespace = 'InsideElectron';
 
-const baseNetAppPath = path.join(__dirname, namespace +'/bin/Debug/net'+ version +'2.0');
+// Construct path to .NET Core dll
+const baseNetAppPath = path.join(path.resolve(__dirname, '..'), namespace +'/bin/Debug/netcoreapp2.0');
 
 process.env.EDGE_USE_CORECLR = 1;
 process.env.EDGE_APP_ROOT = baseNetAppPath;
@@ -81,20 +80,6 @@ function run() {
       renderer.setSize( window.innerWidth, window.innerHeight );
       render();
     }
-
-    var params = {
-      BackgroundColor : [ 0, 128, 255 ] // RGB array
-
-    };
-
-    // gui
-    var gui = new dat.GUI();
-
-    var folder1 = gui.addFolder('scene');
-    folder1.addColor(params, 'BackgroundColor').name('Background Color').onChange( function ( value ){
-      scene.background = new THREE.Color(value[0], value[1], value[2]);
-    });
-
 
     animate();
 

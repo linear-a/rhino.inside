@@ -35,12 +35,6 @@ namespace insideNode
 
             try
             {
-                // Thread.CurrentThread.SetApartmentState(ApartmentState.STA);
-
-                // WindowStyle.Hidden: Node returns Error HRESULT E_FAIL has been returned from a call to a COM component.
-                // WindowStyle.Normal: Rhino opens, then Node returns Error HRESULT E_FAIL has been returned from a call to a COM component.
-                // WindowStyle.NoWindow: OK
-
                 using (new RhinoCore(new string[] { "/NOSPLASH" }, WindowStyle.NoWindow))
                 {
                     var sphere = new Rhino.Geometry.Sphere(Rhino.Geometry.Point3d.Origin, 10.00);

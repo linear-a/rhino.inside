@@ -1,7 +1,8 @@
 const path = require('path');
-var namespace = 'InsideNode';
+var namespace = 'InsideElectron';
 
-const baseNetAppPath = path.join(__dirname, namespace + '/bin/Debug/');
+// Construct path to .NET Core dll
+const baseNetAppPath = path.join(path.resolve(__dirname, '..'), namespace +'/bin/Debug/');
 var baseDll = path.join(baseNetAppPath, namespace + '.dll');
 
 //process.env.EDGE_USE_CORECLR = 1;
@@ -10,6 +11,10 @@ process.env.EDGE_APP_ROOT = baseNetAppPath;
 var edge = require('electron-edge-js');
 
 var rhinoTypeName = namespace + '.RhinoMethods';
+
+
+// Map methods from .NET dll
+
 
 var startRhino = edge.func({
     assemblyFile: baseDll,
@@ -23,12 +28,32 @@ var grasshopperCommand = edge.func({
   methodName: 'StartGrasshopper'
 });
 
+/*
 var doSomething = edge.func({
   assemblyFile: baseDll,
   typeName: rhinoTypeName,
   methodName: 'DoSomething'
 });
+*/
 
+// Launch Rhino and Grasshopper from Javascript
+
+startRhino('', function(error, result) {
+  if (error) throw JSON.stringify(error);
+  console.log(result);
+});
+
+var payload = {
+  cb: function (data, callback) {
+      callback(null, onGhObjectAdded(data));
+  }
+};
+grasshopperCommand(payload, function(error, result) {
+  if (error) throw JSON.stringify(error);
+  console.log(result);
+});
+
+/*
 require('electron').ipcRenderer.on('open-rhino', (event, message) => {
   console.log('starting rhino');
   startRhino('', function(error, result) {
@@ -72,6 +97,7 @@ require('electron').ipcRenderer.on('clear-scene', (event, message) => {
   animate();
 });
 
+*/
 
 function onGhObjectAdded(data)
 {
@@ -131,10 +157,6 @@ function run() {
     camera.position.z = 5;
 
     window.addEventListener( 'resize', onWindowResize, false );
-
-    
-
-
 
     animate();
 

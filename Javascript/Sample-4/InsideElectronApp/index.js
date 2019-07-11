@@ -5,10 +5,10 @@ const app = electron.app;
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
 
-const Menu = electron.Menu;
-const shell = electron.shell;
+// const Menu = electron.Menu;
+// const shell = electron.shell;
 
-const defaultMenu = require('electron-default-menu');
+//const defaultMenu = require('electron-default-menu');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -24,6 +24,7 @@ function createWindow () {
     // Open the DevTools.
     mainWindow.webContents.openDevTools()
 
+/*
     // Get template for default menu
   const menu = defaultMenu(app, shell);
  
@@ -60,6 +61,7 @@ function createWindow () {
  
   // Set top-level application menu, using modified template
   Menu.setApplicationMenu(Menu.buildFromTemplate(menu));
+  */
   
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {

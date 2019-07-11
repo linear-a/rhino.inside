@@ -15,7 +15,7 @@ using Newtonsoft.Json.Serialization;
 using Grasshopper.Kernel;
 using System.Linq;
 
-namespace InsideNode
+namespace InsideElectron
 {
   /// <summary>
   /// Custom task manager inspired by https://www.infoworld.com/article/3063560/building-your-own-task-scheduler-in-c.html.
@@ -53,10 +53,6 @@ namespace InsideNode
         //rhinoSystemDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "Rhino WIP", "System");
         return Assembly.LoadFrom(Path.Combine(rhinoSystemDir, rhinoCommonAssemblyName + ".dll"));
       };
-
-      
-
-      
 
       AppDomain.CurrentDomain.AssemblyResolve += OnGrasshopperCommonResolve = (sender, args) =>
       {
@@ -99,14 +95,13 @@ namespace InsideNode
         RhinoApp.Idle += RhinoApp_Idle;
         RhinoApp.Initialized += RhinoApp_Initialized;
 
-        return null;
+        return "Rhino Started";
       }
       catch (Exception ex)
       {
         return ex;
       }
     }
-
 
     async Task<object> StartGrasshopper(dynamic input)
     {
@@ -137,7 +132,7 @@ namespace InsideNode
     public async Task<object> StartRhinoTask(dynamic input)
     {
       await Task.Factory.StartNew(() => StartRhino(null), CancellationToken.None, TaskCreationOptions.None, this);
-      return null;
+      return "Rhino Initialized.";
     }
 
     /// <summary>
@@ -148,7 +143,7 @@ namespace InsideNode
     public async Task<object> StartGrasshopperTask(dynamic input)
     {
       await Task.Factory.StartNew(() => StartGrasshopper(input), CancellationToken.None, TaskCreationOptions.None, this);
-      return null;
+      return "Grasshopper Initialized.";
     }
 
     public async Task<object> DoSomethingTask(dynamic input)
@@ -168,31 +163,36 @@ namespace InsideNode
     // Controls the main Rhino message loop.
     private void Execute()
     {
-      if (rhinoCore == null)
-      {
-        StartRhino(null);
-      }
+      while (rhinoCore == null)
+        ExecuteTasks();
 
       rhinoCore.Run();
+    }
+
+    private void ExecuteTasks()
+    {
+      while (tasksCollection.TryDequeue(out var t))
+      {
+        TryExecuteTask(t);
+      }
     }
 
     // Event Handlers
 
     private void ActiveCanvas_DocumentChanged(Grasshopper.GUI.Canvas.GH_Canvas sender, Grasshopper.GUI.Canvas.GH_CanvasDocumentChangedEventArgs e)
     {
-      Console.WriteLine("GH: Doc Changed");
+      // Console.WriteLine("GH: Doc Changed");
       definition = e.NewDocument;
       definition.SolutionEnd += Definition_SolutionEnd;
     }
 
     private void Definition_SolutionEnd(object sender, GH_SolutionEventArgs e)
     {
-      Console.WriteLine("GH: Solution End.");
+      // Console.WriteLine("GH: Solution End.");
 
       // Process Meshes
       var mesh = GetDocumentPreview(e.Document);
       cb?.Invoke(Newtonsoft.Json.JsonConvert.SerializeObject(mesh, GeometryResolver.Settings));
-
     }
 
     Rhino.Geometry.Mesh GetDocumentPreview(GH_Document document)
@@ -313,10 +313,7 @@ namespace InsideNode
 
     private void RhinoApp_Idle(object sender, EventArgs e)
     {
-      while (tasksCollection.TryDequeue(out var t))
-      {
-        TryExecuteTask(t);
-      }
+      ExecuteTasks();
     }
 
     private void RhinoApp_Initialized(object sender, EventArgs e)
