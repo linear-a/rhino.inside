@@ -19,6 +19,6 @@ The samples show how to run Rhino.Inside the following Javascript frameworks:
 - [`Chromium Embedded Framework (CefSharp)`](https://cefsharp.github.io/) - Sample 5. The Chromium Embedded Framework is an open-source software framework for embedding a Chromium web browser within another application. 
 
 ## Dependencies
-
+- [`Node.js`](https://nodejs.org) - It is crucial to install Node.js prior to running any of these samples.
 - [`Edge.js`](https://github.com/agracio/edge-js) - This is used to call .NET functions from Javascript in Sample 1, Sample 2, Sample 3, and Sample 4. Sample 5 uses the mechanism in CEF to pass data between .NET and Javascript.
 
