@@ -18,8 +18,8 @@ Note: Visual Studio might take a bit of time to resolve NuGet dependencies the f
 ## Dependencies
 
 Beyond RhinoCommon and Grasshopper APIs, this project depends on the following libraries / frameworks:
-- `CefSharp` (CefSharp.WinForms.dll, CefSharp.Core.dll, and CefSharp.dll referenced via the NuGet Package)
-- `Newtonsoft.Json` (Referenced via the NuGet package)
-- `rhino3dm.js` (Referenced via URL)
-- `three.js` (Referenced via URL)
+- [`CefSharp`](http://cefsharp.github.io/) (CefSharp.WinForms.dll, CefSharp.Core.dll, and CefSharp.dll referenced via the NuGet Package)
+- [`Json.NET`](https://www.newtonsoft.com/json) (Referenced via the NuGet package)
+- [`rhino3dm.js`](https://www.rhino3d.com/rhino3dm) (Referenced via URL)
+- [`three.js`](https://threejs.org/) (Referenced via URL)
 
