@@ -2,12 +2,12 @@
 The Rhino Inside® technology allows Rhino and Grasshopper to be embedded within other products.
 
 ## Sample 1
-This sample shows how to start Rhino from Node.js.
+This sample shows how to start Rhino from Node.js.  The JavaScript code calls into a .NET dll which launches Rhino, creates some geometry, and returns information related to that geometry. This information is then passed back to JavaScript and is printed to the console.
 The sample has been tested on Windows 10, Rhino 7 WIP, and Node.js 8.11.12 (though should work on more recent versions of Node.js)
 
 There are two projects:
 - `insideNode.csproj` - Compiles to a .net class library with one class and one method. This class contains the code to start Rhino.
-- `insideNodeApp.njsproj` - Contains the Node.js code which calls the dotnet class library. Uses [edge.js](https://github.com/agracio/edge-js) to call into dotnet.
+- `insideNodeApp` - Contains the Node.js code which calls the dotnet class library. Uses [edge.js](https://github.com/agracio/edge-js) to call into dotnet.
 
 ### Dependencies
 - Rhino WIP (7.0.19127.235, 5/7/2019)

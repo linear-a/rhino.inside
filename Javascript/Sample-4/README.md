@@ -11,7 +11,7 @@ The sample has been tested on Windows 10, Rhino 7 WIP, and Node.js 8.11.12 (thou
 There are three projects in this sample:
 - `InsideElectron` - Compiles to a .net framework class library with two classes and several methods. This class contains the code to start Rhino and Grasshopper, as well as a custom TaskScheduler.
 - `TestInsideElectron` - A small project to test the TaskScheduler class to control Rhino.
-- `InsideElectronApp` - The Electron app that provides a GUI and launches Rhino and Grasshopper from javascript.
+- `InsideElectronApp` - The Electron app that provides a GUI and launches Rhino and Grasshopper from JavaScript.
 
 ### Dependencies
 - Rhino WIP (7.0.19127.235, 5/7/2019)

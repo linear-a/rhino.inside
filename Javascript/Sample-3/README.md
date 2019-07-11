@@ -8,7 +8,7 @@ The sample has been tested on Windows 10, Rhino 7 WIP, and Node.js 8.11.12 (thou
 
 There are two projects in this sample:
 - `InsideElectron.csproj` - Compiles to a .net Core 2.0 class library with one class and several method. This class contains the code to start Rhino.
-- `InsideElectronApp` - The Electron app that provides a GUI and launches Rhino and Grasshopper from javascript.
+- `InsideElectronApp` - The Electron app that provides a GUI and launches Rhino and Grasshopper from JavaScript.
 
 ### Dependencies
 - Rhino WIP (7.0.19127.235, 5/7/2019)
