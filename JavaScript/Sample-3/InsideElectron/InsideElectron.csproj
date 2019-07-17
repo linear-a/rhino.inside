@@ -24,7 +24,7 @@
       <HintPath>..\InsideElectronApp\node_modules\electron-edge-js\lib\bootstrap\bin\Release\netcoreapp1.1\EdgeJs.dll</HintPath>
     </Reference>
     <Reference Include="RhinoCommon">
-      <HintPath>..\..\..\..\..\..\..\..\Program Files\Rhino WIP\System\RhinoCommon.dll</HintPath>
+      <HintPath>C:\Program Files\Rhino WIP\System\RhinoCommon.dll</HintPath>
       <Private>false</Private>
     </Reference>
   </ItemGroup>
