@@ -49,7 +49,7 @@
       <HintPath>C:\Program Files\Rhino WIP\Plug-ins\Grasshopper\GH_IO.dll</HintPath>
     </Reference>
     <Reference Include="Grasshopper">
-      <HintPath>..\..\..\..\..\..\Program Files\Rhino WIP\Plug-ins\Grasshopper\Grasshopper.dll</HintPath>
+      <HintPath>C:\Program Files\Rhino WIP\Plug-ins\Grasshopper\Grasshopper.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="RhinoCommon">
