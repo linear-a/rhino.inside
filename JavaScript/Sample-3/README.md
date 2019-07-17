@@ -19,8 +19,9 @@ There are two projects in this sample:
 
 ### Running this sample
 This assumes you've installed Node.js for Windows.
-1. Ppen the `InsideElectron.sln` in Visual Studio and build the solution. This builds the .dll which is referenced in the Electron app.
+1. Open the `InsideElectron.sln` in Visual Studio and build the solution. This builds the .dll which is referenced in the Electron app.
 2. Open a console from the `InsideElectronApp` directory.
 3. Run `npm install` to install any dependencies.
-4. Run `npm start` to run the sample.
+4. Run `npm start` to run the sample. You should see:
+![](Rhino.Inside.JavaScript_Sample-3.png)
 

@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "CefWindow";
-            this.Text = "CefWindow";
+            this.Text = "Rhino.Inside.JavaScript - CEF";
             this.ResumeLayout(false);
 
     }

@@ -20,5 +20,9 @@ This assumes you've installed Node.js for Windows.
 1. Once you've cloned the Rhino.Inside repository, open the `insideNode.sln` in Visual Studio and build `insideNode.csproj`. This builds the .dll which is referenced in the Node.js project.
 2. Open a console from the `insideNodeApp` directory.
 3. Run `npm install` to install any dependencies.
-4. Run `node app.js` to run the sample.
+4. Run `node app.js` to run the sample. In the terminal, you should see:
+```
+Rhino has started.
+The mesh has 561 vertices and 512 faces.
+```
 

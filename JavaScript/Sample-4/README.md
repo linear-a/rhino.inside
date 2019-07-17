@@ -23,5 +23,9 @@ This assumes you've installed Node.js for Windows.
 1. Open the `InsideElectron.sln` in Visual Studio and build the solution. This builds the .dll which is referenced in the Electron app.
 2. Open a console from the `InsideElectronApp` directory.
 3. Run `npm install` to install any dependencies.
-4. Run `npm start` to run the sample.
+4. Run `npm start` to run the sample. You should see the Electron window appear, followed by the Grasshopper editor.
+5. In the Grasshopper editor, add a Mesh > Primitive > MeshSphere component to the Grasshopper Canvas. You should see someting like this:
+![](Rhino.Inside.JavaScript_Sample-4_sphere.png)
+As you continue to develop the definition, the rendered geometry will update to reflect what you have defined in the Grasshopper canvas:
+![](Rhino.Inside.JavaScript_Sample-4.png)
 
