@@ -1,5 +1,3 @@
-# This sample isn't complete
-
 # Rhino Inside Node.js
 The Rhino Inside® technology allows Rhino and Grasshopper to be embedded within other products.
 
