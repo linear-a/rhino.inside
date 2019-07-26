@@ -14,6 +14,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json.Serialization;
 using Grasshopper.Kernel;
 using System.Linq;
+using System.Diagnostics;
 
 namespace InsideElectron
 {
@@ -77,7 +78,7 @@ namespace InsideElectron
       
     }
 
-    async Task<object> StartRhino(dynamic input)
+    public async Task<object> StartRhino(dynamic input)
     {
       // WindowStyle.Hidden: OK, with threaded solution.
       // WindowStyle.Normal: OK, with threaded solution.
@@ -89,6 +90,7 @@ namespace InsideElectron
         // TODO: use input argument variables here
         var PATH = Environment.GetEnvironmentVariable("PATH");
         Environment.SetEnvironmentVariable("PATH", PATH + ";" + rhinoSystemDir);
+
         rhinoCore = new RhinoCore(new string[] { "/NOSPLASH" }, WindowStyle.Hidden);
 
         // Subscribe to events
@@ -103,7 +105,7 @@ namespace InsideElectron
       }
     }
 
-    async Task<object> StartGrasshopper(dynamic input)
+    public async Task<object> StartGrasshopper(dynamic input)
     {
       if (!PlugIn.LoadPlugIn(GrasshopperGuid))
         return null;
@@ -131,8 +133,8 @@ namespace InsideElectron
     /// <returns>TODO: Add more meaningful return object.</returns>
     public async Task<object> StartRhinoTask(dynamic input)
     {
-      await Task.Factory.StartNew(() => StartRhino(null), CancellationToken.None, TaskCreationOptions.None, this);
-      return "Rhino Initialized.";
+      var result = await Task.Factory.StartNew(() => StartRhino(null), CancellationToken.None, TaskCreationOptions.None, this);
+      return result;
     }
 
     /// <summary>
@@ -142,7 +144,7 @@ namespace InsideElectron
     /// <returns>TODO: Add more meaningful return object.</returns>
     public async Task<object> StartGrasshopperTask(dynamic input)
     {
-      await Task.Factory.StartNew(() => StartGrasshopper(input), CancellationToken.None, TaskCreationOptions.None, this);
+      var result = await Task.Factory.StartNew(() => StartGrasshopper(input), CancellationToken.None, TaskCreationOptions.None, this);
       return "Grasshopper Initialized.";
     }
 
@@ -163,8 +165,8 @@ namespace InsideElectron
     // Controls the main Rhino message loop.
     private void Execute()
     {
-      while (rhinoCore == null)
-        ExecuteTasks();
+      if (rhinoCore == null)
+        StartRhino(null);
 
       rhinoCore.Run();
     }
@@ -331,7 +333,20 @@ namespace InsideElectron
     protected override void QueueTask(Task task)
     {
       if (task != null)
+      {
+        /*
+        var fieldInfo = typeof(Task).GetField("m_action", BindingFlags.Instance | BindingFlags.NonPublic);
+        var action = fieldInfo.GetValue(task) as Delegate;
+        //Console.WriteLine(action.Method.ToString());
+
+        if (action.Method.Module.Name == "ZooClient.dll")
+        {
+          TryExecuteTask(task);
+          return;
+        }
+        */
         tasksCollection.Enqueue(task);
+      }
     }
 
     protected override bool TryExecuteTaskInline(Task task, bool taskWasPreviouslyQueued)
