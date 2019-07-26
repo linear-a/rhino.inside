@@ -37,11 +37,12 @@ var doSomething = edge.func({
 */
 
 // Launch Rhino and Grasshopper from Javascript
-
+/*
 startRhino('', function(error, result) {
   if (error) throw JSON.stringify(error);
   console.log(result);
 });
+*/
 
 var payload = {
   cb: function (data, callback) {
