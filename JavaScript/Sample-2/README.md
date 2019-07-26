@@ -8,7 +8,7 @@ The sample has been tested on Windows 10, Rhino 7 WIP, and Node.js 8.11.12 (thou
 
 There are two projects:
 - `InsideNode.csproj` - Compiles to a .net class library with one class and one method. This class contains the code to start Rhino.
-- `InsideNodeApp.njsproj` - Contains the Node.js code which calls the dotnet class library. Uses [edge.js](https://github.com/agracio/edge-js) to call into dotnet.
+- `InsideNodeApp` - Contains the Node.js code which calls the dotnet class library. Uses [edge.js](https://github.com/agracio/edge-js) to call into dotnet.
 
 ### Dependencies
 - Rhino WIP (7.0.19127.235, 5/7/2019)

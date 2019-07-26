@@ -17,10 +17,12 @@ There are three projects in this sample:
 - edge.js (^11.3.1)
 - Electron
 - Three.js
+- rhino3dm.js
+- Json.Net
 
 ### Running this sample
 This assumes you've installed Node.js for Windows.
-1. Open the `InsideElectron.sln` in Visual Studio and build the solution. This builds the .dll which is referenced in the Electron app.
+1. Open the `InsideElectron.sln` in Visual Studio and build the solution. This builds the .dll which is referenced in the Electron app. Note: You might need to Clean dna Rebuild the InsideElectron.csproj to get NuGet to restore the Json.Net package.
 2. Open a console from the `InsideElectronApp` directory.
 3. Run `npm install` to install any dependencies.
 4. Run `npm start` to run the sample. You should see the Electron window appear, followed by the Grasshopper editor.
